@@ -9,43 +9,30 @@ public class MarriageEligibility extends Exception {
 
 	public void checkMarriageEligibilty() {
 		try {
-			if ((Gender == "Male" && age > 21) || (Gender == "Female" && age > 18)) {
+			if ((Gender.equals("Male") && age > 21) || (Gender.equals("Female") && age > 18)) {
 				System.out.println(" User is eligible for marriage");
 			} else {
 				throw new MyException("User is not elgible for marriage");
 			}
-		}
-
-		catch (MyException e) {
+		} catch (MyException e) {
 			System.out.println(e);
 		}
-
 	}
 
 	public static void main(String[] args) {
-		Scanner a1, a2, a3;
+		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter name");
-		a1 = new Scanner(System.in);
-		if (a1.hasNext()) {
-			Name = a1.next();
-		}
+		Name = sc.next();
 
 		System.out.println("Enter Age");
-		a2 = new Scanner(System.in);
-		if (a2.hasNext()) {
-			age = a2.nextInt();
-		}
+		age = sc.nextInt();
 
 		System.out.println("Enter Gender (Male /Female)");
-		a3 = new Scanner(System.in);
-		if (a3.hasNext()) {
-			Gender = a3.next();
+		Gender = sc.next();
 
-			MarriageEligibility me = new MarriageEligibility();
-			me.checkMarriageEligibilty();
-
-		}
+		MarriageEligibility me = new MarriageEligibility();
+		me.checkMarriageEligibilty();
 
 	}
 
